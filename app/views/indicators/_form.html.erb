@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
-  </div>
-  <div class="field">
-    <%= f.label :case %><br />
-    <%= f.text_field :case %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :analyst %><br />
-    <%= f.text_field :analyst %>
-  </div>
+
+  <table>
+      <div class="field">
+          <tr><td><%= f.label "Case ID" %></td><td><%= f.text_field :case %></td></tr>
+      </div>
+      <div class="field">
+          <tr><td><%= f.label "Indicators" %></td><td><%= f.text_area :content %></td></tr>
+      </div>
+      <div class="field">
+          <tr><td><%= f.label "Description" %></td><td><%= f.text_area :description %></td></tr>
+      </div>
+      <div class="field">
+          <tr><td><%= f.label "Analyst" %></td><td><%= f.text_field :analyst %></td></tr>
+      </div>
+  </table>
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit %>
   </div>
+
 <% end %>
