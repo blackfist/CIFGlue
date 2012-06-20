@@ -8,19 +8,20 @@
 development: &default
   adapter: postgresql
   host: localhost 
-  database: cif_development 
+  database: cifgui_development 
   pool: 5
   timeout: 5000
-  username: cif
-  password: cifpassword
+  username: cifgui
+  password: cifgui 
+  template: template0
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: cif_test
+  database: cifgui_test 
 
 production:
   <<: *default
-  database: cif
+  database: cifgui_production 
