@@ -42,16 +42,26 @@ class IndicatorsController < ApplicationController
   # POST /indicators.json
   def create
     @indicator = Indicator.new(params[:indicator])
+    successtext = "The following indicators were created successfully:\n"
+    errortext = "There were errors creating the following indicators:\n"
+
+        @indicator.content.split("\n").each do |i|
+            @tempindicator = Indicator.new()
+            @tempindicator.content = i
+            @tempindicator.description = @indicator.description
+            @tempindicator.analyst = @indicator.analyst
+            @tempindicator.case = @indicator.case
+            if @tempindicator.save
+                successtext += i + "\n"
+            else
+               errortext += 1 + "\n"
+            end 
+        end
 
     respond_to do |format|
-      if @indicator.save
-        format.html { redirect_to @indicator, notice: 'Indicator was successfully created.' }
-        format.json { render json: @indicator, status: :created, location: @indicator }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @indicator.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to indicators_path, notice: successtext }
     end
+
   end
 
   # PUT /indicators/1
