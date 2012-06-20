@@ -1,4 +1,4 @@
-<h1>Listing indicators</h1>
+<h1>Indicators</h1>
 
 <table>
   <tr>
@@ -13,17 +13,16 @@
 
 <% @indicators.each do |indicator| %>
   <tr>
-    <td><%= indicator.content %></td>
+    <td><%= link_to indicator.content, indicator %></td>
     <td><%= indicator.case %></td>
     <td><%= indicator.description %></td>
-    <td><%= indicator.analyst %></td>
-    <td><%= link_to 'Show', indicator %></td>
+    <td><%= indicator.analyst %></td> 
     <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
-    <td><%= link_to 'Destroy', indicator, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', indicator, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Indicator', new_indicator_path %>
+<%= link_to 'New', new_indicator_path, :class => "btn btn-success" %>
