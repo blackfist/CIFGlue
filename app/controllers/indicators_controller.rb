@@ -6,6 +6,7 @@ class IndicatorsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.rss  #index.rss.builder
       format.json { render json: @indicators }
     end
   end
