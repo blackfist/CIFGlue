@@ -9,7 +9,7 @@ xml.rss version: "2.0" do
             xml.item do
                 xml.indicator i.content
                 xml.caseid i.case
-                xml.description i.description
+                xml.description i.description + " [" + i.analyst + "]"
                 xml.analyst i.analyst
                 xml.date    i.created_at
             end

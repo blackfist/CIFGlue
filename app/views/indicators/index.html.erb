@@ -1,6 +1,6 @@
 <%- model_class = Indicator.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => @pagename %></h1>
+    <h1><%=t '.title', :default => @pagename %><%= link_to image_tag("feed-icon-14x14.png"), indicators_url(format: "rss") %></h1>
 </div>
 <%= link_to t('.new', :default => "<i class='icon-plus icon-white'></i> New Indicator".html_safe),
     new_indicator_path,
