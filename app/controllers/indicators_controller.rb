@@ -16,6 +16,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators/1.json
   def show
     @indicator = Indicator.find(params[:id])
+    @pagename = "Indicator details"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +28,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators/new.json
   def new
     @indicator = Indicator.new
+    @pagename = "New Indicator(s)"
 
     respond_to do |format|
       format.html # new.html.erb
