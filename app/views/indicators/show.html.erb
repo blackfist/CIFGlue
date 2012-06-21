@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @indicator.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Content:</b>
-  <%= @indicator.content %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @indicator.content %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:case) %>:</strong></dt>
+  <dd><%= @indicator.case %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @indicator.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:analyst) %>:</strong></dt>
+  <dd><%= @indicator.analyst %></dd>
+</dl>
 
-<p>
-  <b>Case:</b>
-  <%= @indicator.case %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @indicator.description %>
-</p>
-
-<p>
-  <b>Analyst:</b>
-  <%= @indicator.analyst %>
-</p>
-
-
-<%= link_to 'Edit', edit_indicator_path(@indicator) %> |
-<%= link_to 'Back', indicators_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              indicators_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_indicator_path(@indicator), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              indicator_path(@indicator),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

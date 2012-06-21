@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#indicators').dataTable()
+  $('#indicators').dataTable({
+    "sPaginationType": "bootstrap"
+   } );

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cif</title>
+    <title><%= @pagename %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="navbar-fixed">
+    <div class="navbar-inner">
+        <div class="container">
+            <%= image_tag("admin_logo.png", :alt => "Verizon logo") %>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,33 +1,32 @@
-<%= form_for(@indicator) do |f| %>
-  <% if @indicator.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@indicator.errors.count, "error") %> prohibited this indicator from being saved:</h2>
-
-      <ul>
-      <% @indicator.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @indicator, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :content, :class => 'text_field' %>
     </div>
-  <% end %>
-
-
-  <table>
-      <div class="field">
-          <tr><td><%= f.label "Case ID" %></td><td><%= f.text_field :case %></td></tr>
-      </div>
-      <div class="field">
-          <tr><td><%= f.label "Indicators" %></td><td><%= f.text_area :content %></td></tr>
-      </div>
-      <div class="field">
-          <tr><td><%= f.label "Description" %></td><td><%= f.text_area :description %></td></tr>
-      </div>
-      <div class="field">
-          <tr><td><%= f.label "Analyst" %></td><td><%= f.text_field :analyst %></td></tr>
-      </div>
-  </table>
-  <div class="actions">
-      <%= f.submit %>
+  </div>
+  <div class="control-group">
+    <%= f.label :case, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :case, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :analyst, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :analyst, :class => 'text_field' %>
+    </div>
   </div>
 
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                indicators_path, :class => 'btn' %>
+  </div>
 <% end %>

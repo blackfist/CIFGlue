@@ -1,5 +1,6 @@
-<h1>New indicator</h1>
-<p>Use this form to enter one or more indicators from the same case that will have the same description.  For example, a list of malware hashes or ip addresses.</p>
-<%= render 'form' %>
-
-<%= link_to 'Back', indicators_path %>
+<%- model_class = @indicator.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h1>
+</div>
+<%= render :partial => 'form' %>
