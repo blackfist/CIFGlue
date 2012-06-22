@@ -1,3 +1,4 @@
+require 'active_support/inflector'
 class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
@@ -36,7 +37,7 @@ class IndicatorsController < ApplicationController
     end
   end
 
-  # GET /indicators/1/edit
+ # GET /indicators/1/edit
   def edit
     @indicator = Indicator.find(params[:id])
   end
@@ -45,9 +46,10 @@ class IndicatorsController < ApplicationController
   # POST /indicators.json
   def create
     @indicator = Indicator.new(params[:indicator])
-    successtext = "The following indicators were created successfully:\n"
-    errortext = "There were errors creating the following indicators:\n"
-
+    @successmessage = "The following indicators were created successfully:<br />"
+    @failmessage = "The following indicators were not saved due to errors:<br />"
+    @anysuccess = false
+    @anyfailures = false
         @indicator.content.split("\n").each do |i|
             @tempindicator = Indicator.new()
             @tempindicator.content = i
@@ -55,14 +57,20 @@ class IndicatorsController < ApplicationController
             @tempindicator.analyst = @indicator.analyst
             @tempindicator.case = @indicator.case
             if @tempindicator.save
-                successtext += i + "\n"
+                @anysuccess = true
+                @successmessage += @indicator.content + ", "
             else
-               errortext += 1 + "\n"
+                @anyfailures = true
+                @tempindicator.errors.messages.each do |key,msg|
+                   @failmessage += @tempindicator.content + ": " + key.to_s + " " + msg[0] + "<br />"
+                end
             end 
         end
+        flash[:notice] = @successmessage.html_safe if @anysuccess
+        flash[:error] = @failmessage.html_safe if @anyfailures
 
     respond_to do |format|
-      format.html { redirect_to indicators_path, notice: successtext }
+      format.html { redirect_to indicators_path }
     end
 
   end
