@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<div class="navbar-fixed">
-    <div class="navbar-inner">
-        <div class="container">
-            <%= image_tag("admin_logo.png", :alt => "Verizon logo") %>
-        </div>
-    </div>
-</div>
-
 <div class="container">
+  <div class="navbar-fixed">
+      <div class="navbar-inner">
+          <div class="container">
+              <%= link_to image_tag('admin_logo.png'), indicators_path, :class => "brand" %>
+          </div>
+      </div>
+  </div>
+
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
       <a class="close" data-dismiss="alert">x</a>
