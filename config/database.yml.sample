@@ -11,8 +11,8 @@ development: &default
   database: cifgui_development 
   pool: 5
   timeout: 5000
-  username: cifgui
-  password: cifgui 
+  username: some_username 
+  password: some_password 
   template: template0
 
 # Warning: The database defined as "test" will be erased and

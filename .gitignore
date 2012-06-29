@@ -16,3 +16,6 @@
 
 # Igore my .rvmrc file
 /.rvmrc
+
+# Ignore my real database.yml file
+/config/database.yml
