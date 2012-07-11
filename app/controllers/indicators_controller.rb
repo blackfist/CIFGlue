@@ -3,7 +3,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    @indicators = Indicator.all
+    @indicators = Indicator.all(:order => "created_at DESC")
     @pagename = "List and enter indicators"
 
     respond_to do |format|
