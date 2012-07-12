@@ -15,10 +15,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:content) %></th>
-      <th><%= model_class.human_attribute_name(:case) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:analyst) %></th>
+      <th class="indicator-content"><%= model_class.human_attribute_name(:content) %></th>
+      <th class="indicator-case"><%= model_class.human_attribute_name(:case) %></th>
+      <th class="indicator-description"><%= model_class.human_attribute_name(:description) %></th>
+      <th class="indicator-analyst"><%= model_class.human_attribute_name(:analyst) %></th>
       <th class="indicator-controls"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>

@@ -5,4 +5,9 @@ textarea.new_indicator_text_area { width: 350px; }
 
 div.rss-icon { float: right; }
 
+th.indicator-content { width: 300px; 
+   word-wrap:break-word; }
+th.indicator-case { width: 50px; }
+// th.indicator-description { }
+th.indicator-analyst { width: 50px; }
 th.indicator-controls { width: 50px; }
