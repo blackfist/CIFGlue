@@ -5,11 +5,10 @@ textarea.new_indicator_text_area { width: 350px; }
 
 div.rss-icon { float: right; }
 
-th.indicator-content { width: 300px; 
-   word-wrap:break-word; }
-td.indicator-content { width: 300px;
-   word-wrap:break-word; }
-th.indicator-case { width: 50px; }
-// th.indicator-description { }
-th.indicator-analyst { width: 50px; }
-th.indicator-controls { width: 50px; }
+th.indicator-content, td.indicator-content { max-width: 100px;
+//   word-wrap:break-word; }
+   overflow:hidden; }
+th.indicator-case, td.indicator-case { }
+th.indicator-description, td.indicator-description { max-width: 200px; }
+th.indicator-analyst, td.indicator-analyst {}
+th.indicator-controls, td.indicator-controls { max-width: 10px; } 
