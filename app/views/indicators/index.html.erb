@@ -1,3 +1,4 @@
+<% content_for :head, auto_discovery_link_tag(:rss, indicators_url(format: "rss")) %>
 <%- model_class = Indicator.new.class -%>
 <div class="page-header">
    <div class="rss-icon">
