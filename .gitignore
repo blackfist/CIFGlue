@@ -19,3 +19,4 @@
 
 # Ignore my real database.yml file
 /config/database.yml
+/public/assets/*
