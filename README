@@ -3,3 +3,5 @@ This is a simple rails app to make it easy to manually add indicators to a CIF s
 
 Setup
 Like most rails apps.  You're going to need to git clone this into a folder, then run bundle install to get all the gems.  I recommend using an RVM Gemset so that you can keep it all separate from other rails apps.  Update config/database.yml with your credentials.  Then run 'rake db:create' and you should be all set.  The app was built for a postgresql database but can be easily converted to use mysql or sqlite since I'm not using any postgres specific stuff in the database.
+
+Since you might not work for Verizon you probably don't want your RSS feed to say Verizon intelligence and all that.  If you go into the app/models/settings.rb file you can change the ORGNAME value to something specific for your group.  The default value is Verizon so that you'll know who made this awesome app (which is basically a less-cool less-sophisticated version of Twitter).
