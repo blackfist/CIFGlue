@@ -45,29 +45,21 @@ class IndicatorsController < ApplicationController
   # POST /indicators
   # POST /indicators.json
   def create
+    @anyfailures = false  
     @indicator = Indicator.new(params[:indicator])
-    @successmessage = "The following indicators were created successfully:<br />"
-    @failmessage = "The following indicators were not saved due to errors:<br />"
-    @anysuccess = false
-    @anyfailures = false
-        @indicator.content.split("\n").each do |i|
-            @tempindicator = Indicator.new()
-            @tempindicator.content = i
-            @tempindicator.description = @indicator.description
-            @tempindicator.analyst = @indicator.analyst
-            @tempindicator.case = @indicator.case
-            if @tempindicator.save
-                @anysuccess = true
-                @successmessage += @indicator.content + ", "
-            else
-                @anyfailures = true
-                @tempindicator.errors.messages.each do |key,msg|
-                   @failmessage += @tempindicator.content + ": " + key.to_s + " " + msg[0] + "<br />"
-                end
-            end 
+    @indicator.content.split("\n").each do |i|
+        @tempindicator = Indicator.new()
+        @tempindicator.content = i
+        @tempindicator.description = @indicator.description
+        @tempindicator.analyst = @indicator.analyst
+        @tempindicator.case = @indicator.case
+        begin
+            @tempindicator.save
+        rescue 
+            flash[:error] = "At least one indicator failed to save."
         end
-        flash[:notice] = @successmessage.html_safe if @anysuccess
-        flash[:error] = @failmessage.html_safe if @anyfailures
+    end
+    flash[:notice] = "Indicators saved successfully." 
 
     respond_to do |format|
       format.html { redirect_to indicators_path }
