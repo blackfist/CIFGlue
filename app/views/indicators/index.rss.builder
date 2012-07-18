@@ -8,6 +8,11 @@ xml.rss version: "2.0" do
         @indicators.each do |i|
             xml.item do
                 xml.indicator i.content
+                xml.class i.class
+                if i.class.to_s == "MalwareIndicator"
+                   xml.md5sum i.md5sum
+                   xml.ipaddress i.ipaddress
+                end
                 xml.title i.content + " [" + i.case + "]"
                 xml.caseid i.case
                 xml.description i.description + " [" + i.analyst + "]"
