@@ -2,6 +2,7 @@ Cif::Application.routes.draw do
   resources :indicators do
       collection do
           get 'malware'
+          get 'other'
       end
   end
 

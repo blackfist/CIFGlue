@@ -18,7 +18,16 @@ class IndicatorsController < ApplicationController
       @pagename = "List of malware"
 
       respond_to do |format|
-          format.rss #malwareindex.rss.builder
+          format.rss #malware.rss.builder
+      end
+  end
+
+  def other 
+      @indicators = Indicator.where(:type => nil)
+      @pagename = "List of malware"
+
+      respond_to do |format|
+          format.rss #other.rss.builder
       end
   end
 
