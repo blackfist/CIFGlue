@@ -13,6 +13,15 @@ class IndicatorsController < ApplicationController
     end
   end
 
+  def malware
+      @indicators = MalwareIndicator.all(:order => "created_at DESC")
+      @pagename = "List of malware"
+
+      respond_to do |format|
+          format.rss #malwareindex.rss.builder
+      end
+  end
+
   # GET /indicators/1
   # GET /indicators/1.json
   def show
