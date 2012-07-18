@@ -23,7 +23,7 @@ class IndicatorsController < ApplicationController
   end
 
   def other 
-      @indicators = Indicator.where(:type => nil)
+      @indicators = Indicator.where(:type => nil).all(:order => "created_at DESC")
       @pagename = "List of malware"
 
       respond_to do |format|
