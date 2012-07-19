@@ -8,9 +8,6 @@
       <h1><%=t '.title', :default => @pagename %></h1>
     </div>
 </div>
-<%= link_to t('.new', :default => "<i class='icon-plus icon-white'></i> New Indicator".html_safe),
-    new_indicator_path,
-    :class => 'btn btn-primary' %>
 
 <div class="btn-group">
    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
@@ -19,7 +16,8 @@
    </a>
    <ul class="dropdown-menu">
        <!-- dropdown menu links -->
-       <li><%= link_to("Basic", new_indicator_path) %></li>
+       <li><%= link_to("<i class=\"icon-eye-open icon-white\"></i> Basic".html_safe, new_indicator_path) %></li>
+       <li><%= link_to("<i class=\"icon-beaker icon-white\"></i> Malware".html_safe, "#") %></li>
    </ul>
 </div>
 
