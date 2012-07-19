@@ -3,7 +3,11 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    @indicators = Indicator.all(:order => "created_at DESC")
+    if params[:type] == "MalwareIndicator"
+        @indicators = MalwareIndicator.all(:order => "created_at DESC")
+    else
+        @indicators = Indicator.all(:order => "created_at DESC")
+    end
     @pagename = "List and enter indicators"
 
     respond_to do |format|
@@ -13,25 +17,6 @@ class IndicatorsController < ApplicationController
     end
   end
 
-  # Get /indicators/malware.rss
-  def malware
-      @indicators = MalwareIndicator.all(:order => "created_at DESC")
-      @pagename = "List of malware"
-
-      respond_to do |format|
-          format.rss #malware.rss.builder
-      end
-  end
-
-  # GET /indicators/other.rss
-  def other 
-      @indicators = Indicator.where(:type => nil).all(:order => "created_at DESC")
-      @pagename = "List of malware"
-
-      respond_to do |format|
-          format.rss #other.rss.builder
-      end
-  end
 
   # GET /indicators/1
   # GET /indicators/1.json
@@ -48,7 +33,11 @@ class IndicatorsController < ApplicationController
   # GET /indicators/new
   # GET /indicators/new.json
   def new
-    @indicator = Indicator.new
+    if params[:type] == "MalwareIndicator"
+        @indicator = MalwareIndicator.new
+    else
+        @indicator = Indicator.new
+    end
     @pagename = "New Indicator(s)"
 
     respond_to do |format|
