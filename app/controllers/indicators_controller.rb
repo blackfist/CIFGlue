@@ -3,11 +3,16 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    if params[:type] == "MalwareIndicator"
-        @indicators = MalwareIndicator.all(:order => "created_at DESC")
-    else
+    if params[:type].nil?
         @indicators = Indicator.all(:order => "created_at DESC")
+    else
+        @indicators = Indicator.where(:type => params[:type]).all(:order => "created_at DESC")
     end
+    # if params[:type] == "MalwareIndicator"
+    #    @indicators = MalwareIndicator.all(:order => "created_at DESC")
+    # else
+    #    @indicators = Indicator.all(:order => "created_at DESC")
+    # end
     @pagename = "List and enter indicators"
 
     respond_to do |format|
