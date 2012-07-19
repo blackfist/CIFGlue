@@ -8,11 +8,6 @@ class IndicatorsController < ApplicationController
     else
         @indicators = Indicator.where(:type => params[:type]).all(:order => "created_at DESC")
     end
-    # if params[:type] == "MalwareIndicator"
-    #    @indicators = MalwareIndicator.all(:order => "created_at DESC")
-    # else
-    #    @indicators = Indicator.all(:order => "created_at DESC")
-    # end
     @pagename = "List and enter indicators"
 
     respond_to do |format|
@@ -38,10 +33,10 @@ class IndicatorsController < ApplicationController
   # GET /indicators/new
   # GET /indicators/new.json
   def new
-    if params[:type] == "MalwareIndicator"
-        @indicator = MalwareIndicator.new
-    else
+    if params[:type].nil?
         @indicator = Indicator.new
+    else
+        @indicator = params[:type].constantize.new
     end
     @pagename = "New Indicator(s)"
 
