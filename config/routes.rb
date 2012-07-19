@@ -1,11 +1,8 @@
 Cif::Application.routes.draw do
-  resources :indicators do
-      collection do
-          get 'malware'
-          get 'other'
-      end
-  end
+  resources :indicators 
+  resources :malware, :controller => "indicators", :type => "MalwareIndicator"
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

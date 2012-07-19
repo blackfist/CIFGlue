@@ -13,6 +13,7 @@ class IndicatorsController < ApplicationController
     end
   end
 
+  # Get /indicators/malware.rss
   def malware
       @indicators = MalwareIndicator.all(:order => "created_at DESC")
       @pagename = "List of malware"
@@ -22,6 +23,7 @@ class IndicatorsController < ApplicationController
       end
   end
 
+  # GET /indicators/other.rss
   def other 
       @indicators = Indicator.where(:type => nil).all(:order => "created_at DESC")
       @pagename = "List of malware"
@@ -87,6 +89,7 @@ class IndicatorsController < ApplicationController
 
   # PUT /indicators/1
   # PUT /indicators/1.json
+
   def update
     @indicator = Indicator.find(params[:id])
 
