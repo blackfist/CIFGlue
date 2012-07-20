@@ -60,8 +60,8 @@ class IndicatorsController < ApplicationController
     if params[:type] == "MalwareIndicator"
         @mal = MalwareIndicator.new(params[:indicator])
         @mal.md5sum.split("\n").each do |m|
-            @tempmal = MalwareIndicator.new(:content => m,
-                                        :md5sum => m,
+            @tempmal = MalwareIndicator.new(:content => m.strip,
+                                        :md5sum => m.strip,
                                         :ipaddress => @mal.ipaddress,
                                         :analyst => @mal.analyst,
                                         :case => @mal.case,
@@ -76,13 +76,13 @@ class IndicatorsController < ApplicationController
     if params[:type].nil?
         @ind = Indicator.new(params[:indicator])
         @ind.content.split("\n").each do |c|
-            @tempind = Indicator.new(:content => c,
+            @tempind = Indicator.new(:content => c.strip,
                                      :analyst => @ind.analyst,
                                      :case => @ind.case,
                                      :description => @ind.description)
             if MalwareIndicator.isHash(@tempind.content)
                 @tempind.type = "MalwareIndicator"
-                @tempind.md5sum = c
+                @tempind.md5sum = c.strip
             end
 
             if @tempind.save == false
