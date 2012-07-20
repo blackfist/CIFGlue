@@ -109,10 +109,12 @@ class IndicatorsController < ApplicationController
 
   def update
     @indicator = Indicator.find(params[:id])
+    puts @indicator.type
+
 
     respond_to do |format|
       if @indicator.update_attributes(params[:indicator])
-        format.html { redirect_to @indicator, notice: 'Indicator was successfully updated.' }
+        format.html { redirect_to indicators_path, notice: 'Indicator was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
