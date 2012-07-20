@@ -3,8 +3,10 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    if params[:type].nil?
+    if params[:type] == "All" 
         @indicators = Indicator.all(:order => "created_at DESC")
+    elsif params[:type].nil?
+        @indicators = Indicator.where(:type => nil).all(:order => "created_at DESC")
     else
         @indicators = Indicator.where(:type => params[:type]).all(:order => "created_at DESC")
     end
