@@ -55,20 +55,46 @@ class IndicatorsController < ApplicationController
   # POST /indicators.json
   def create
     @anyfailures = false  
-    @indicator = Indicator.new(params[:indicator])
-    @indicator.content.split("\n").each do |i|
-        @tempindicator = Indicator.new()
-        @tempindicator.content = i
-        @tempindicator.description = @indicator.description
-        @tempindicator.analyst = @indicator.analyst
-        @tempindicator.case = @indicator.case
-        begin
-            @tempindicator.save
-        rescue 
-            flash[:error] = "At least one indicator failed to save."
+    if params[:type] == "MalwareIndicator"
+        @mal = MalwareIndicator.new(params[:indicator])
+        @mal.md5sum.split("\n").each do |m|
+            @tempmal = MalwareIndicator.new(:content => m,
+                                        :md5sum => m,
+                                        :ipaddress => @mal.ipaddress,
+                                        :analyst => @mal.analyst,
+                                        :case => @mal.case,
+                                        :description => @mal.description) 
+            if @tempmal.save == false
+                @anyfailures = true
+                flash[:error] = @tempmal.errors.full_messages.to_sentence
+            end
         end
     end
-    flash[:notice] = "Indicators saved successfully." 
+
+    if params[:type].nil?
+        @ind = Indicator.new(params[:indicator])
+        @ind.content.split("\n").each do |c|
+            @tempind = Indicator.new(:content => c,
+                                     :analyst => @ind.analyst,
+                                     :case => @ind.case,
+                                     :description => @ind.description)
+            if MalwareIndicator.isHash(@tempind.content)
+                @tempind.type = "MalwareIndicator"
+                @tempind.md5sum = c
+            end
+
+            if @tempind.save == false
+                @anyfailures = true
+                flash[:error] = @tempind.errors.full_messages.to_sentence
+            end
+        end
+    end
+
+
+    if @anyfailures
+    else
+        flash[:notice] = "Indicators saved successfully."
+    end
 
     respond_to do |format|
       format.html { redirect_to indicators_path }
