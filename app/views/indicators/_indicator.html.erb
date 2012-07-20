@@ -1,4 +1,4 @@
-<%= form_for @indicator, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @indicator.becomes(Indicator), :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
       <%= f.label "Case", :class => 'control-label' %>
       <div class="controls">

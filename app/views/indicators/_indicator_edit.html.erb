@@ -1,0 +1,32 @@
+<%= form_for @indicator.becomes(Indicator), :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+      <%= f.label "Case", :class => 'control-label' %>
+      <div class="controls">
+          <%= f.text_field :case, :class => 'text_field' %>
+      </div>
+  </div>
+  <div class="control-group">
+      <%= f.label "Analyst", :class => 'control-label' %>
+      <div class="controls">
+          <%= f.text_field :analyst, :class => 'text_field' %>
+      </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Indicator", :class => 'control-label' %>
+    <div class="controls">
+        <%= f.text_field :content, :class => 'new_indicator_text_area', :cols => 40, :rows => 10 %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+        <%= f.text_area :description, :class => 'new_indicator_text_area', :cols => 60, :rows => 10 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                indicators_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -17,7 +17,7 @@ xml.rss version: "2.0" do
                 xml.caseid i.case
                 xml.description i.description + " [" + i.analyst + "]"
                 xml.analyst i.analyst
-                xml.date    i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')
+                xml.date    i.created_at
                 xml.link    indicator_url(i)
                 xml.guid    indicator_url(i)
             end

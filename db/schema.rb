@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620143027) do
+ActiveRecord::Schema.define(:version => 20120718153814) do
 
   create_table "indicators", :force => true do |t|
     t.string   "content"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(:version => 20120620143027) do
     t.string   "analyst"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "type"
+    t.string   "md5sum"
+    t.string   "ipaddress"
   end
 
 end

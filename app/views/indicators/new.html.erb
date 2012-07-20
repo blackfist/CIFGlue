@@ -1,8 +1,6 @@
-<%- model_class = @indicator.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
-                                 :default => @pagename ) %></h1>
-  <p>Here you can enter details about a single indicator or multiple indicators that are related to the same case.  Separate multiple indicators with a new line.</p>
+    <h1>New <%= @indicator.friendly_name.titleize %></h1>
+    <p>Here you can enter details about a single <%= @indicator.friendly_name %> or multiple <%= @indicator.friendly_name.pluralize %> that are related to the same case.  Separate multiple indicators with a new line.</p>
 </div>
 
-<%= render :partial => 'form' %>
+<%= render :partial => @indicator.class.to_s.downcase %>
