@@ -1,8 +1,7 @@
 Cif::Application.routes.draw do
   resources :indicators 
   resources :malware, :controller => "indicators", :type => "MalwareIndicator"
-  resources :all, :controller => "indicators", :type => "All", :only => [:index]
-  resources :other, :controller => "indicators", :type => nil, :only => [:index]
+  resources :other, :controller => "indicators", :type => "other", :only => [:index]
 
   
   # The priority is based upon order of creation:
