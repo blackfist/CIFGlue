@@ -5,4 +5,5 @@
 jQuery ->
   $('#indicatorTable').dataTable({
     "sPaginationType": "bootstrap"
+    "iDisplayLength": 50
    } );
