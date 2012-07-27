@@ -16,7 +16,7 @@ jQuery ->
   $('#indicatorTable').dataTable
     sPaginationType: "bootstrap"
     iDisplayLength: 50
-    aoColumnDefs: [ { "bSortable":false, "aTargets":[4]} ]
+    aoColumnDefs: [{ "bSortable":false, "aTargets":[4]}] 
     bProcessing: true
     bServerSide: true
     sAjaxSource:$('#indicatorTable').data('source')

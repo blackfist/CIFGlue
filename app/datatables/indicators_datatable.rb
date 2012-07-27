@@ -19,11 +19,11 @@ private
   def data
     indicators.map do |indicator|
       [
-        link_to(indicator.content, indicator),
+        link_to(indicator.content, indicator.becomes(Indicator)),
         h(indicator.case),
         h(indicator.description),
         h(indicator.analyst),
-        h("something")
+        link_to("edit", "#")
       ]
     end
   end
