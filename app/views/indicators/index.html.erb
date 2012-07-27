@@ -21,7 +21,7 @@
    </ul>
 </div>
 <br />
-<table class="table table-striped" id="indicatorTable">
+<table class="table table-striped" id="indicatorTable" data-source="<%= indicators_url(format: "json") %>" >
   <thead>
     <tr>
       <th class="indicator-content"><%= model_class.human_attribute_name(:content) %></th>
@@ -32,23 +32,6 @@
     </tr>
   </thead>
   <tbody>
-    <% @indicators.each do |indicator| %>
-      <tr>
-        <td class="indicator-content"><%= link_to indicator.content, indicator_path(indicator) %></td>
-        <td class="indicator-case"><%= indicator.case %></td>
-        <td class="indicator-description"><%= indicator.description %></td>
-        <td class="indicator-analyst"><%= indicator.analyst %></td>
-        <td class="indicator-controls">
-          <%= link_to t('.edit', :default => "<i class='icon-pencil icon-white'></i>".html_safe),
-              edit_indicator_path(indicator), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => "<i class='icon-trash icon-white'></i>".html_safe),
-              indicator_path(indicator),
-              :method => :delete,
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 <br />

@@ -2,9 +2,21 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+# jQuery ->
+#   $('#indicatorTable').dataTable({
+#     "sPaginationType": "bootstrap"
+#     "iDisplayLength": 50
+#     "aoColumnDefs": [ { "bSortable":false, "aTargets":[4]} ]
+#     "bProcessing": "true"
+#     "bServerSide": "true"
+#     "sAjaxSource":"$('#indicatorTable').data('source')"
+#    } );
+
 jQuery ->
-  $('#indicatorTable').dataTable({
-    "sPaginationType": "bootstrap"
-    "iDisplayLength": 50
-    "aoColumnDefs": [ { "bSortable":false, "aTargets":[4]} ]
-   } );
+  $('#indicatorTable').dataTable
+    sPaginationType: "bootstrap"
+    iDisplayLength: 50
+    aoColumnDefs: [ { "bSortable":false, "aTargets":[4]} ]
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource:$('#indicatorTable').data('source')

@@ -3,19 +3,12 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    if params[:type].nil?  
-        @indicators = Indicator.all(:order => "created_at DESC")
-    elsif params[:type] == "other"
-        @indicators = Indicator.where(:type => nil).all(:order => "created_at DESC")
-    else
-        @indicators = Indicator.where(:type => params[:type]).all(:order => "created_at DESC")
-    end
     @pagename = "List and enter indicators"
 
     respond_to do |format|
       format.html # index.html.erb
       format.rss  #index.rss.builder
-      format.json { render json: @indicators }
+      format.json { render json: IndicatorsDatatable.new(view_context) }
     end
   end
 
