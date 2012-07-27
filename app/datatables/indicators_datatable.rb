@@ -1,4 +1,5 @@
 class IndicatorsDatatable
+  include Rails.application.routes.url_helpers
   delegate :params, :h, :link_to, :number_to_currency, to: :@view
 
   def initialize(view)
@@ -19,11 +20,16 @@ private
   def data
     indicators.map do |indicator|
       [
-        link_to(indicator.content, indicator.becomes(Indicator)),
+        link_to(indicator.content, indicator_path(indicator.becomes(Indicator))),
         h(indicator.case),
         h(indicator.description),
         h(indicator.analyst),
-        link_to("edit", "#")
+        link_to("<i class='icon-pencil icon-white'></i>".html_safe, edit_indicator_path(indicator), :class => 'btn btn-mini') + 
+        link_to("<i class='icon-trash icon-white'></i>".html_safe, 
+                indicator_path(indicator.becomes(Indicator)), 
+                :method => :delete, 
+                :confirm => 'Are you sure you want to delete this indicator?',
+                :class => 'btn btn-mini btn-danger')
       ]
     end
   end
