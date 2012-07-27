@@ -20,7 +20,7 @@
        <li><%= link_to("<i class=\"icon-beaker icon-white\"></i> Malware".html_safe, new_malware_path) %></li>
    </ul>
 </div>
-
+<br />
 <table class="table table-striped" id="indicatorTable">
   <thead>
     <tr>
@@ -51,7 +51,7 @@
     <% end %>
   </tbody>
 </table>
-
+<br />
 <%= link_to t('.new', :default => "<i class='icon-plus icon-white'></i> New Indicator".html_safe), 
     new_indicator_path,
     :class => 'btn btn-primary' %>
