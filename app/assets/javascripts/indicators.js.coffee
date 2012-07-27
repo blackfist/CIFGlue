@@ -6,4 +6,5 @@ jQuery ->
   $('#indicatorTable').dataTable({
     "sPaginationType": "bootstrap"
     "iDisplayLength": 50
+    "aoColumnDefs": [ { "bSortable":false, "aTargets":[4]} ]
    } );
