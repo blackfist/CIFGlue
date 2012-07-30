@@ -11,8 +11,12 @@ class Indicator < ActiveRecord::Base
       puts "### the detected type is " + type
       if type.nil? or type == '' or type.downcase == 'all'
           puts "### Empty type, returning all"
-          Indicator.all
+          # Using Indicator.scoped so that it returns an ActiveRecord Relation rather than an array.
+          # The datatable class requires an ActiveRecord Relation in order to sort the results of
+          # This method
+          Indicator.scoped
       elsif type.downcase == "other"
+          puts "### returning everything which is undefined"
           Indicator.others
       else
           puts "#### Catch all type.  Returning type ==" +type
