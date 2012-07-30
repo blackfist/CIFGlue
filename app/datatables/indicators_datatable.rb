@@ -39,7 +39,7 @@ private
   end
 
   def fetch_indicators
-    indicators = Indicator.order("#{sort_column} #{sort_direction}")
+    indicators = Indicator.by_type(params[:type]).order("#{sort_column} #{sort_direction}")
     indicators = indicators.page(page).per_page(per_page)
     if params[:sSearch].present?
       indicators = indicators.where("indicators.content like :search or indicators.case like :search or indicators.description like :search or indicators.analyst like :search", search: "%#{params[:sSearch]}%")
