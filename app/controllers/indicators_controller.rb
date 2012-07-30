@@ -12,6 +12,7 @@ class IndicatorsController < ApplicationController
     end
 
     @pagename = "List and enter indicators"
+    @datatype = params[:type].to_s
 
     respond_to do |format|
       format.html # index.html.erb

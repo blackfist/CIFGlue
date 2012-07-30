@@ -12,6 +12,9 @@
 #     "sAjaxSource":"$('#indicatorTable').data('source')"
 #    } );
 
+javascript:
+  datatype = "#{@datatype}";
+  
 jQuery ->
   $('#indicatorTable').dataTable
     sPaginationType: "bootstrap"
@@ -20,3 +23,7 @@ jQuery ->
     bProcessing: true
     bServerSide: true
     sAjaxSource:$('#indicatorTable').data('source')
+    fnServerParams:(aoData) ->
+      aoData.push
+        name: "type"
+        value: DataType 
