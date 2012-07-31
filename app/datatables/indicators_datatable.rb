@@ -27,7 +27,7 @@ private
         link_to("<i class='icon-pencil icon-white'></i>".html_safe, edit_indicator_path(indicator), :class => 'btn btn-mini') + 
         link_to("<i class='icon-trash icon-white'></i>".html_safe, 
                 indicator_path(indicator.becomes(Indicator)), 
-                :method => :delete, 
+        :method => :delete, 
                 :confirm => 'Are you sure you want to delete this indicator?',
                 :class => 'btn btn-mini btn-danger')
       ]
@@ -39,7 +39,8 @@ private
   end
 
   def fetch_indicators
-    indicators = Indicator.by_type(params[:type]).order("#{sort_column} #{sort_direction}")
+    #indicators = Indicator.by_type(params[:type]).order("#{sort_column} #{sort_direction}")
+    indicators = Indicator.by_type(params[:type]).order("indicators.#{sort_column} #{sort_direction}")
     indicators = indicators.page(page).per_page(per_page)
     if params[:sSearch].present?
       indicators = indicators.where("indicators.content like :search or indicators.case like :search or indicators.description like :search or indicators.analyst like :search", search: "%#{params[:sSearch]}%")
