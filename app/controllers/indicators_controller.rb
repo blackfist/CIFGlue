@@ -3,13 +3,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    if params[:type].nil?
-        @indicators = Indicator.all(:order => "created_at DESC")
-    elsif params[:type] == "other"
-        @indicators = Indicator.where(:type => nil).all(:order => "created_at DESC")
-    else
-        @indicators = Indicator.where(:type => params[:type]).all(:order => "created_at DESC")
-    end
+    @indicators = Indicator.by_type(params[:type])
 
     @pagename = "List and enter indicators"
     @datatype = params[:type].to_s

@@ -39,11 +39,12 @@ private
   end
 
   def fetch_indicators
-    #indicators = Indicator.by_type(params[:type]).order("#{sort_column} #{sort_direction}")
     indicators = Indicator.by_type(params[:type]).order("indicators.#{sort_column} #{sort_direction}")
     indicators = indicators.page(page).per_page(per_page)
+    # The ilike used to search below is Postgres specific.  This would need to change if this app was going
+    # to be used on a MySQL or SQLite database.  That is what makes the search case-insensitive
     if params[:sSearch].present?
-      indicators = indicators.where("indicators.content like :search or indicators.case like :search or indicators.description like :search or indicators.analyst like :search", search: "%#{params[:sSearch]}%")
+      indicators = indicators.where("indicators.content ilike :search or indicators.case like :search or indicators.description like :search or indicators.analyst like :search", search: "%#{params[:sSearch]}%")
     end
     indicators 
   end
