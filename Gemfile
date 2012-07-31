@@ -13,6 +13,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'twitter-bootstrap-rails', '2.1.0'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 end
 
 # Gems used for testing
@@ -24,4 +25,3 @@ group :development, :test do
 end
 
 gem 'jquery-rails'
-gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
