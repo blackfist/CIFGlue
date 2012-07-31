@@ -12,6 +12,7 @@ class IndicatorsController < ApplicationController
       format.html # index.html.erb
       format.rss  #index.rss.builder
       format.json { render json: IndicatorsDatatable.new(view_context) }
+      format.csv #index.csv.erb
     end
   end
 

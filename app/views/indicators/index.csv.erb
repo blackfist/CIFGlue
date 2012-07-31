@@ -1,0 +1,4 @@
+type,content,md5sum,ipaddress,description,case,analyst
+<% @indicators.all.each do |i| %>
+    "<%= i.class %>","<%= i.content %>","<%= i.md5sum %>","<%= i.ipaddress %>","<%= i.description %>","<%= i.case %>","<%= i.analyst %>"
+<% end %>
