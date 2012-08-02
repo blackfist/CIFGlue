@@ -20,7 +20,7 @@ Customizing CIFGlue
 
 Since you might not work for Verizon you probably don't want your RSS feed to say Verizon intelligence and all that.  If you go into the app/models/settings.rb file you can change the ORGNAME value to something specific for your group.  The default value is Verizon so that you'll know who made this awesome app (which is basically a less-cool less-sophisticated version of Twitter). You can also change the logo at the top of the screen by placing your own logo into app/assets/images and changing the value of ORGIMAGE in the app/models/settings.rb file.  The default is Verizon because Verizon rocks.
 
-Watch Out
----------
+Thanks
+------
 
-When I was writing this I couldn't get the button dropdown to work on indicators/index.html.  The fix was to go into app/assets/javascript/application.js and put the twitter-bootstrap scripts above the JQuery scripts.  That totally should not work, but some crazy person on the Internet suggested it.  If things should start to go crazy at some point, I suggest looking at that.
+I have to say thanks to everyone at StackOverflow.com for puttint together an awesome community which has provided me so many answers.  And big thanks to Dave Kruse for helping me out when StackOverflow couldn't.
