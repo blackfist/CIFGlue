@@ -1,4 +1,4 @@
 type,content,md5sum,ipaddress,description,case,analyst,created_at,path
 <% @indicators.all.each do |i| %>
-    "<%= i.class %>","<%= i.content %>","<%= i.md5sum %>","<%= i.ipaddress %>","<%= i.description %>","<%= i.case %>","<%= i.analyst %>","<%= i.created_at %>","<%= indicator_url(i) %>"
+    "<%= i.class %>","<%= i.content %>","<%= i.md5sum %>","<%= i.ipaddress %>","<%= i.description %>","<%= i.case %>","<%= i.analyst %>","<%= i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ') %>","<%= indicator_url(i) %>"
 <% end %>
