@@ -44,7 +44,7 @@ private
     # The ilike used to search below is Postgres specific.  This would need to change if this app was going
     # to be used on a MySQL or SQLite database.  That is what makes the search case-insensitive
     if params[:sSearch].present?
-      indicators = indicators.where("indicators.content ilike :search or indicators.case like :search or indicators.description like :search or indicators.analyst like :search", search: "%#{params[:sSearch]}%")
+      indicators = indicators.where("indicators.content ilike :search or indicators.case ilike :search or indicators.description ilike :search or indicators.analyst ilike :search", search: "%#{params[:sSearch]}%")
     end
     indicators 
   end
