@@ -6,6 +6,7 @@
 <%- model_class = Indicator.new.class -%>
 <div class="page-header">
    <div class="rss-icon">
+      <%= link_to image_tag("501149.png", size: "28x28"), url_for(format: "csv") %>
       <%= link_to image_tag("feed-icon-28x28.png"), url_for(format: "rss") %>
    </div>
     <div>
