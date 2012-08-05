@@ -6,7 +6,7 @@
 <%- model_class = Indicator.new.class -%>
 <div class="page-header">
    <div class="rss-icon">
-      <%= link_to image_tag("feed-icon-28x28.png"), indicators_url(format: "rss") %>
+      <%= link_to image_tag("feed-icon-28x28.png"), url_for(format: "rss") %>
    </div>
     <div>
       <h1><%=t '.title', :default => @pagename %></h1>
