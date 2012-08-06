@@ -76,7 +76,9 @@ class IndicatorsController < ApplicationController
             @tempind = Indicator.new(:content => c.strip,
                                      :analyst => @ind.analyst,
                                      :case => @ind.case,
-                                     :description => @ind.description)
+                                     :description => @ind.description,
+                                     :type => "Indicator")
+                
             if MalwareIndicator.isHash(@tempind.content)
                 @tempind.type = "MalwareIndicator"
                 @tempind.md5sum = c.strip
