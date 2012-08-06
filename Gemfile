@@ -22,6 +22,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'autotest'
   gem 'autotest-standalone'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'cucumber'
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'
