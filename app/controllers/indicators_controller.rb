@@ -3,10 +3,8 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    @indicators = Indicator.by_type(params[:type])
-
-    @pagename = "List and enter indicators"
-    @datatype = params[:type].to_s
+    @search = Indicator.search(params[:q])
+    @indicators = @search.result
 
     respond_to do |format|
       format.html # index.html.erb

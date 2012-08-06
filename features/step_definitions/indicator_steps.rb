@@ -11,7 +11,7 @@ Then /^I should see "(.*?)"$/  do |content|
 end
 
 When /^I search for "(.*?)"$/ do |arg1|
-    fill_in 'q[content_cont]', :with => arg1
+    fill_in 'q[content_or_case_or_analyst_or_description_cont]', :with => arg1
     click_button "Search" 
 end
 
@@ -24,7 +24,7 @@ Given /^I have a MalwareIndicator with content "(.*?)"$/ do |arg1|
 end
 
 When /^I search for MalwareIndicators$/ do
-    fill_in 'q[type_cont]', :with => 'MalwareIndicator'
+    select("Malware", :from => 'q[type_start]')
     click_button "Search"
 end
 
