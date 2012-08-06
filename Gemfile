@@ -26,7 +26,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber'
+  gem 'cucumber-rails'
   gem 'database_cleaner'
 end
 
