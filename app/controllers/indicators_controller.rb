@@ -3,6 +3,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
+    @params = {"q" => params[:q] }
     @search = Indicator.search(params[:q])
     @indicators = @search.result
 
