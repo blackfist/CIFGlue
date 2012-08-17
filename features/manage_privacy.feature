@@ -7,3 +7,11 @@ Feature: Manage Privacy
     Given I have a privacy tag called "Green"
     When I go to the list of privacy tags
     Then I should see "Green"
+  
+  Scenario: Analyst adds a new privacy tag
+    Given I go to the new privacy tag page
+    And I fill in "privacy_tag[content]" with "Green"
+    When I click "Create"
+    Then I should be on the privacy tag page
+    And I should see "Green"
+    And I should see a success message for "Green"
