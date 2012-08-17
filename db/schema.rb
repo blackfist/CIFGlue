@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120718153814) do
+ActiveRecord::Schema.define(:version => 20120817145716) do
 
   create_table "indicators", :force => true do |t|
     t.string   "content"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20120718153814) do
     t.string   "type"
     t.string   "md5sum"
     t.string   "ipaddress"
+    t.integer  "confidence"
+  end
+
+  create_table "privacy_tags", :force => true do |t|
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
