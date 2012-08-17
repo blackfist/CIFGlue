@@ -20,3 +20,6 @@
 # Ignore my real database.yml file
 /config/database.yml
 /public/assets/*
+
+# Ignore any swap files if I have vi open
+*.*.swp
