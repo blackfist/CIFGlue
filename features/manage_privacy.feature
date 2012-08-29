@@ -23,6 +23,6 @@ Feature: Manage Privacy
 
   Scenario: Analyst adds a duplicate privacy tag
     Given I have a privacy tag called "Green"
-    When I try to create another tag called "Green"
+    When I try to create a tag called "Green"
     Then I should be on the new privacy tag page
     And I should see an error message for "Green"

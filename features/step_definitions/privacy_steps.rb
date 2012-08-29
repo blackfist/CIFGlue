@@ -19,12 +19,28 @@ When /^I click "(.*?)"$/ do |arg1|
 end
 
 Then /^I should be on the privacy tag page$/ do
-    privacy_tags_path
+    page.current_path.should == privacy_tags_path
+end
+
+Then /^I should be on the new privacy tag page$/ do
+    page.current_path.should == new_privacy_tag_path
 end
 
 Then /^I should see a success message for "(.*?)"$/ do |arg1|
-    page.should have_selector('div', :class => 'alert alert success') do |flash|
-        flash.should have_content arg1
+    page.within('div', :class => 'alert alert-success') do
+        page.should have_content arg1 
     end
 end
 
+Then /^I should see an error message for "(.*?)"$/ do |arg1|
+    page.within('div', :class => 'alert alert-error') do
+        page.should have_content arg1
+    end
+end
+
+
+When /^I try to create a tag called "(.*?)"$/ do |arg1|
+    visit new_privacy_tag_path
+    fill_in 'privacy_tag[content]', :with => arg1
+    click_button 'Create'
+end
