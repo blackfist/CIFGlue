@@ -10,7 +10,12 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+<% if Rails.env == 'Development' %>
+//= require twitter/bootstrap
+<% end %>
 //= require jquery
 //= require jquery_ujs
+<% if Rails.env == 'Production' %>
 //= require twitter/bootstrap
+<% end %>
 //= require_tree .
