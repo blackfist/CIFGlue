@@ -11,19 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817145716) do
+ActiveRecord::Schema.define(:version => 20120830033250) do
 
   create_table "indicators", :force => true do |t|
     t.string   "content"
     t.string   "case"
     t.text     "description"
     t.string   "analyst"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "type"
     t.string   "md5sum"
     t.string   "ipaddress"
     t.integer  "confidence"
+    t.integer  "privacy_tag_id"
   end
 
   create_table "privacy_tags", :force => true do |t|

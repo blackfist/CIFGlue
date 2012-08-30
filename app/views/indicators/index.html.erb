@@ -19,6 +19,10 @@
         <%= f.label :type_start, "Show these indicators:" %>
         <%= f.select :type_start, {"All" => "", "Basic" => "Indicator", "Malware" => "MalwareIndicator"} %>
     </div>
+    <div class="field">
+        <%= f.label :privacy_tag_id_eq, "Privacy" %>
+        <%= f.collection_select :privacy_tag_id_eq, PrivacyTag.all, :id, :content, {:include_blank => "All" } %>
+    </div>
     <div class="action"><%= f.submit "Search" %></div>
 <% end %>
 
