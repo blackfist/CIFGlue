@@ -1,5 +1,5 @@
 class Indicator < ActiveRecord::Base
-  attr_accessible :analyst, :case, :content, :description, :friendly_name, :type, :privacy_tag_id
+  attr_accessible :analyst, :case, :content, :description, :friendly_name, :type, :privacy_tag_id, :privacy
   validates :content, :description, :analyst, :presence => true
   scope :others, where(:type => nil)
 
@@ -7,6 +7,10 @@ class Indicator < ActiveRecord::Base
 
   def friendly_name
       "indicator"
+  end
+
+  def privacy
+      PrivacyTag.find(privacy_tag_id).content
   end
 
   def self.by_type(type = 'all')
