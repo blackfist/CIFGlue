@@ -32,9 +32,9 @@ class IndicatorsController < ApplicationController
   # GET /indicators/new.json
   def new
     if params[:type].nil?
-        @indicator = Indicator.new
+        @indicator = Indicator.new(:privacy_tag_id => Settings::DEFAULT_PRIVACY)
     else
-        @indicator = params[:type].constantize.new
+        @indicator = params[:type].constantize.new(:privacy_tag_id => Settings::DEFAULT_PRIVACY)
     end
     @pagename = "New Indicator(s)"
 
@@ -76,6 +76,7 @@ class IndicatorsController < ApplicationController
                                      :analyst => @ind.analyst,
                                      :case => @ind.case,
                                      :description => @ind.description,
+                                     :privacy_tag_id => @ind.privacy_tag_id,
                                      :type => "Indicator")
                 
             if MalwareIndicator.isHash(@tempind.content)
