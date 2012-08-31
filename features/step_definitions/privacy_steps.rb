@@ -10,6 +10,9 @@ When /^I go to the new indicator form$/ do
     visit new_indicator_path
 end
 
+When /^I go to the new malware indicator form$/ do
+    visit new_malware_path
+end
 
 Given /^I go to the new privacy tag page$/ do
     visit new_privacy_tag_path
@@ -46,6 +49,13 @@ end
 Then /^I should see a label for "(.*?)"$/ do |arg1|
     page.should have_content arg1
 end
+
+Then /^I should see "(.*?)" in a selectbox$/ do |arg1|
+    page.within('select') do
+        page.should have_content arg1 
+    end
+end
+
 
 When /^I try to create a tag called "(.*?)"$/ do |arg1|
     visit new_privacy_tag_path

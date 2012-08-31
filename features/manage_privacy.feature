@@ -21,6 +21,11 @@ Feature: Manage Privacy
     When I go to the new indicator form
     Then I should see "Secret" in a selectbox
 
+  Scenario: Analyst adds a new malware indicator
+    Given I have a privacy tag called "Secret"
+    When I go to the new malware indicator form
+    Then I should see "Secret" in a selectbox
+
   Scenario: Analyst adds a duplicate privacy tag
     Given I have a privacy tag called "Secret"
     When I try to create a tag called "Secret"
