@@ -10,21 +10,31 @@
     </div>
 </div>
 
-<%= search_form_for @search do |f| %>
-    <div class="field">
-        <%= f.label :content_cont, "Keyword search" %>
-        <%= f.text_field :content_or_case_or_analyst_or_description_cont %>
+<div class="accordion" id="accordion2">
+   <div class="accordion-group">
+      <div class="accordion-heading">
+         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Search and Filter</a>
+      </div>
+      <div id="collapseOne" class="accordion-body collapse">
+         <div class="accordion-inner">
+            <%= search_form_for @search do |f| %>
+                <div class="field">
+                    <%= f.label :content_cont, "Keyword search" %>
+                    <%= f.text_field :content_or_case_or_analyst_or_description_cont %>
+                </div>
+                <div class="field">
+                    <%= f.label :type_start, "Show these indicators:" %>
+                    <%= f.select :type_start, {"All" => "", "Basic" => "Indicator", "Malware" => "MalwareIndicator"} %>
+                </div>
+                <div class="field">
+                    <%= f.label :privacy_tag_id_eq, "Privacy" %>
+                    <%= f.collection_select :privacy_tag_id_eq, PrivacyTag.all, :id, :content, {:include_blank => "All" } %>
+                </div>
+                <div class="action"><%= f.submit "Search" %></div>
+            <% end %>
+        </div>
     </div>
-    <div class="field">
-        <%= f.label :type_start, "Show these indicators:" %>
-        <%= f.select :type_start, {"All" => "", "Basic" => "Indicator", "Malware" => "MalwareIndicator"} %>
-    </div>
-    <div class="field">
-        <%= f.label :privacy_tag_id_eq, "Privacy" %>
-        <%= f.collection_select :privacy_tag_id_eq, PrivacyTag.all, :id, :content, {:include_blank => "All" } %>
-    </div>
-    <div class="action"><%= f.submit "Search" %></div>
-<% end %>
+</div>
 
 <div class="btn-group">
    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
@@ -36,6 +46,7 @@
        <li><%= link_to("<i class=\"icon-eye-open icon-white\"></i> Basic".html_safe, new_indicator_path) %></li>
        <li><%= link_to("<i class=\"icon-beaker icon-white\"></i> Malware".html_safe, new_malware_path) %></li>
    </ul>
+</div>
 </div>
 
 <table class="table table-striped">

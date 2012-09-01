@@ -14,3 +14,17 @@ th.indicator-description, td.indicator-description {
      overflow:hidden; }
 th.indicator-analyst, td.indicator-analyst { max-width: 100px; }
 th.indicator-controls, td.indicator-controls { max-width: 25px; } 
+
+div.accordion-group {
+    margin-bottom: 10px;
+}
+
+div.accordion-heading {
+    background-color: Gray;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+a.accordion-toggle {
+    color: White;
+}

@@ -6,6 +6,7 @@ class IndicatorsController < ApplicationController
     @params = {"q" => params[:q] }
     @search = Indicator.search(params[:q])
     @indicators = @search.result
+    @pagename = "List of Indicators"
 
     respond_to do |format|
       format.html # index.html.erb
