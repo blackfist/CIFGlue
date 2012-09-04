@@ -1,5 +1,5 @@
-Given /^I have a privacy tag called "(.*?)"$/ do |tag|
-    PrivacyTag.create(:content => tag)
+Given /^I have a privacy tag called "(.*?)" with color "(.*?)"$/ do |tag, color|
+    PrivacyTag.create!(:content => tag, :color => color)
 end
 
 When /^I go to the list of privacy tags$/ do

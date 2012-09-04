@@ -11,14 +11,15 @@
 
 <div class="container">
 <%= link_to "Go to github to put in bug fixes and suggest improvements", "https://github.com/blackfist/CIFGlue" %>
-  <div class="navbar-fixed">
-      <div class="navbar-inner">
-          <div class="container">
-              <%= link_to image_tag(Settings::ORGIMAGE), indicators_path, :class => "brand" %>
-          </div>
-      </div>
-  </div>
-
+  <div class="navbar">
+     <div class="navbar-inner">
+         <%= link_to image_tag(Settings::ORGIMAGE, :size=>"50x20"), indicators_path, :class => "brand" %>
+        <ul class="nav">
+           <li><%= link_to "Indicators", indicators_path %></li>
+           <li><%= link_to "Privacy", privacy_tags_path %></li>
+        </ul>
+     </div>
+ </div>
   <%= bootstrap_flash %>
 
   <%= yield %>

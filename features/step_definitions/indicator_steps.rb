@@ -1,5 +1,9 @@
-Given /^I have an indicator with content "(.*?)" and casename "(.*?)"$/ do |content, casename|
-  Indicator.create(:content => content, :case => casename, :analyst => 'Thompson', :description => 'botnet server')
+Given /^I have an indicator with content "(.*?)", privacy, "(.*?)" and casename "(.*?)"$/ do |content, privacy, casename|
+  Indicator.create(:content => content, 
+                   :case => casename,
+                   :privacy_tag_id => PrivacyTag.find_or_create_by_content(privacy), 
+                   :analyst => 'Thompson', 
+                   :description => 'botnet server')
 end
 
 Given /^I have an indicator with content "(.*?)" and privacy "(.*?)"$/ do |content, privacy| 
@@ -35,7 +39,12 @@ Then /^I should not see "(.*?)"$/ do |arg1|
 end
 
 Given /^I have a MalwareIndicator with content "(.*?)"$/ do |arg1|
-    MalwareIndicator.create(:content => arg1, :md5sum => arg1, :case => '2012VZIR0002', :analyst => 'Brannon', :description => 'keylogger')
+    MalwareIndicator.create(:content => arg1, 
+                            :md5sum => arg1, 
+                            :case => '2012VZIR0002', 
+                            :privacy_tag_id => PrivacyTag.find_or_create_by_content("Unclassified"),
+                            :analyst => 'Brannon', 
+                            :description => 'keylogger')
 end
 
 When /^I search for MalwareIndicators$/ do

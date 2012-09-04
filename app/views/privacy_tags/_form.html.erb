@@ -5,6 +5,12 @@
       <%= f.text_field :content, :class => 'text_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :color, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :color, PrivacyTag::COLORS %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary', :value => 'Create' %>

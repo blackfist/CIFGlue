@@ -7,4 +7,8 @@ class PrivacyTag < ActiveRecord::Base
 
   has_many :indicators
 
+  def PrivacyColorClass
+      "privacy privacy-"+color
+  end
+
 end
