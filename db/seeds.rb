@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-["Red","Amber","Green"].each do |tag|
-    PrivacyTag.find_or_create_by_content(tag)
-end
+
+PrivacyTag.create!(:content => "Red", :color => "Red")
+PrivacyTag.create!(:content => "Amber", :color => "Yellow")
+PrivacyTag.create!(:content => "Green", :color => "White")

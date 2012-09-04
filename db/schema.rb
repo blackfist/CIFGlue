@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830033250) do
+ActiveRecord::Schema.define(:version => 20120904181644) do
 
   create_table "indicators", :force => true do |t|
     t.string   "content"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120830033250) do
     t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "color"
   end
 
 end

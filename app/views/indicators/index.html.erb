@@ -62,7 +62,7 @@
   <tbody>
     <% @indicators.each do |indicator| %>
       <tr>
-        <td class="indicator-content"><%= link_to indicator.content, indicator_path(indicator) %></td>
+          <td class="indicator-content"><%= link_to indicator.content, indicator_path(indicator), :class => indicator.PrivacyColor %></td>
         <td class="indicator-case"><%= indicator.case %></td>
         <td class="indicator-description"><%= indicator.description %></td>
         <td class="indicator-analyst"><%= indicator.analyst %></td>

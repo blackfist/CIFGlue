@@ -9,8 +9,12 @@ class Indicator < ActiveRecord::Base
       "indicator"
   end
 
-  def privacy
+  def Privacy
       PrivacyTag.find(privacy_tag_id).content
+  end
+
+  def PrivacyColor
+      "privacy privacy-" + PrivacyTag.find(privacy_tag_id).color
   end
 
   def self.by_type(type = 'all')

@@ -1,3 +1,44 @@
 // Place all the styles related to the PrivacyTagsController controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.privacy {
+    padding: 1px;
+    padding-right:3px;
+    padding-left: 3px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.privacy-Black {
+    background-color: Black;
+    color: White;
+}
+
+.privacy-White {
+    color: Black;
+}
+
+.privacy-Red {
+    background-color: Red;
+    color: Black;
+}
+
+.privacy-Orange {
+    background-color: Orange;
+    color:Black;
+}
+
+.privacy-Yellow {
+    background-color: Yellow;
+    color: Black;
+}
+
+.privacy-Green {
+    background-color: Green;
+    font-color: White;
+}
+
+.privacy-Blue {
+    background-color: Blue;
+    font-color: White;
+}
