@@ -5,7 +5,7 @@ xml.rss version: "2.0" do
         xml.description "Indicators collected from " + Settings::ORGNAME + " intelligence."
         xml.link indicators_url
 
-        @indicators.each do |i|
+        @indicators_consumable.each do |i|
             xml.item do
                 xml.indicator i.content
                 if i.class.to_s == "MalwareIndicator"
