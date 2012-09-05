@@ -14,6 +14,7 @@ xml.rss version: "2.0" do
                 end
                 xml.title i.content + " [" + i.case + "]"
                 xml.caseid i.case
+                xml.alternateid i.alternateid
                 xml.date    i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')
                 xml.privacy i.privacy
                 xml.link    indicator_url(i)
