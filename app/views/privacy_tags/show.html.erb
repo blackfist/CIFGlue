@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
   <dd><div class="<%= @privacy_tag.PrivacyColorClass %>"><%= @privacy_tag.content %></div></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @privacy_tag.description%></dd>
+  <dd><%= @privacy_tag.description ||= "None" %></dd>
 </dl>
 
 <div class="form-actions">

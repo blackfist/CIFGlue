@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905024840) do
+ActiveRecord::Schema.define(:version => 20120905114104) do
 
   create_table "indicators", :force => true do |t|
     t.string   "content"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120905024840) do
     t.string   "ipaddress"
     t.integer  "confidence"
     t.integer  "privacy_tag_id"
+    t.string   "alternateid"
   end
 
   create_table "privacy_tags", :force => true do |t|

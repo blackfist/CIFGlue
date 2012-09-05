@@ -62,6 +62,7 @@ class IndicatorsController < ApplicationController
                                         :ipaddress => @mal.ipaddress,
                                         :analyst => @mal.analyst,
                                         :case => @mal.case,
+                                        :alternateid => @mal.alternateid,
                                         :description => @mal.description) 
             if @tempmal.save == false
                 @anyfailures = true
@@ -76,6 +77,7 @@ class IndicatorsController < ApplicationController
             @tempind = Indicator.new(:content => c.strip,
                                      :analyst => @ind.analyst,
                                      :case => @ind.case,
+                                     :alternateid => @ind.alternateid,
                                      :description => @ind.description,
                                      :privacy_tag_id => @ind.privacy_tag_id,
                                      :type => "Indicator")

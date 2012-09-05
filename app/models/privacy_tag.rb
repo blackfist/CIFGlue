@@ -11,13 +11,6 @@ class PrivacyTag < ActiveRecord::Base
       "privacy privacy-"+color
   end
 
-  def description
-      if read_attribute(:description).nil?
-          " "
-      else
-          read_attribute(:description)
-      end
-  end
 
 
 end

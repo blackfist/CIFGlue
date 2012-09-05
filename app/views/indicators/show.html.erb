@@ -8,6 +8,8 @@
   <dd><%= @indicator.content %></dd>
   <dt><strong><%= model_class.human_attribute_name(:case) %>:</strong></dt>
   <dd><%= @indicator.case %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alternateid) %>:</strong></dt>
+  <dd><%= @indicator.alternateid ||= "None" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @indicator.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:analyst) %>:</strong></dt>
