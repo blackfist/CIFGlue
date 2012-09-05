@@ -1,0 +1,6 @@
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      privacy_tag_path(privacy_tag),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+
