@@ -11,6 +11,10 @@ class PrivacyTagsController < ApplicationController
       @privacy_tag = PrivacyTag.find(params[:id])
   end
 
+  def show
+      @privacy_tag = PrivacyTag.find(params[:id])
+  end
+
   def create
       @privacy_tag = PrivacyTag.new(params[:privacy_tag])
       if @privacy_tag.save
