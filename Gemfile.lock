@@ -41,6 +41,8 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-standalone (4.5.9)
+    bootstrap-will_paginate (0.0.8)
+      will_paginate
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -186,6 +188,7 @@ PLATFORMS
 DEPENDENCIES
   autotest
   autotest-standalone
+  bootstrap-will_paginate
   capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails

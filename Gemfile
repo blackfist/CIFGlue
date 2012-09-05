@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'pg'
 gem 'sqlite3'
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'ransack'
 
 # Gems used only for assets and not required

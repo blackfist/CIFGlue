@@ -5,7 +5,7 @@ class IndicatorsController < ApplicationController
   def index
     @params = {"q" => params[:q] }
     @search = Indicator.search(params[:q])
-    @indicators = @search.result
+    @indicators = @search.result.paginate(:page => params[:page], :per_page => 30)
     @pagename = "Indicators of Compromise"
 
     respond_to do |format|
