@@ -16,7 +16,7 @@ xml.rss version: "2.0" do
                 xml.caseid i.case
                 xml.alternateid i.alternateid
                 xml.date    i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')
-                xml.privacy i.privacy
+                xml.privacy i.Privacy
                 xml.link    indicator_url(i)
                 xml.guid    indicator_url(i)
             end
