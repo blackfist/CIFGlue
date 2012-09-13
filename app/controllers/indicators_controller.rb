@@ -5,12 +5,12 @@ class IndicatorsController < ApplicationController
   def index
     @params = {"q" => params[:q] }
     @search = Indicator.search(params[:q])
-    @indicators = @search.result.paginate(:page => params[:page], :per_page => params[:results] ||= 50)
     if !params[:results].nil?
-       @indicators_consumable = @search.result.paginate(:page => params[:page] ||= 1, :per_page => params[:results])
+        @indicators_consumable = @search.result.paginate(:page => params[:page] ||= 1, :per_page => params[:results])
     else
-       @indicators_consumable = @search.result
+        @indicators_consumable = @search.result
     end
+    @indicators = @search.result.paginate(:page => params[:page], :per_page => params[:results] ||= 50)
     @pagename = "Indicators of Compromise"
 
     respond_to do |format|
