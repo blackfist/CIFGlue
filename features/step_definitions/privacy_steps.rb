@@ -60,5 +60,5 @@ end
 When /^I try to create a tag called "(.*?)"$/ do |arg1|
     visit new_privacy_tag_path
     fill_in 'privacy_tag[content]', :with => arg1
-    click_button 'Create'
+    click_button 'Save'
 end

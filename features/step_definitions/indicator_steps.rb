@@ -24,7 +24,7 @@ Then /^I should see "(.*?)"$/  do |content|
 end
 
 When /^I search for "(.*?)"$/ do |arg1|
-    fill_in 'q[content_or_case_or_analyst_or_description_cont]', :with => arg1
+    fill_in 'q[content_or_case_or_analyst_or_description_or_alternateid_cont]', :with => arg1
     click_button "Search" 
 end
 

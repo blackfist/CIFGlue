@@ -11,7 +11,7 @@ Feature: Manage Privacy
   Scenario: Analyst adds a new privacy tag
     Given I go to the new privacy tag page
     And I fill in "privacy_tag[content]" with "Secret"
-    When I click "Create"
+    When I click "Save"
     Then I should be on the privacy tag page
     And I should see "Secret"
     And I should see a success message for "Secret"
