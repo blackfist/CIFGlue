@@ -5,6 +5,7 @@ Cif::Application.routes.draw do
   resources :malware, :controller => "indicators", :type => "MalwareIndicator"
   resources :other, :controller => "indicators", :type => "other", :only => [:index]
   resources :privacy_tags
+  resources :actions
 
   
   # The priority is based upon order of creation:
