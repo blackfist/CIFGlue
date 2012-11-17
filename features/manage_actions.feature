@@ -5,9 +5,9 @@ Feature: Manage Actions
 
     Scenario: User adds an action
         Given I go to the new action page
-        And I fill in "Action" with "Botnet"
-        And I fill in "Impact" with "Botnet"
-        When I click "Create"
+        And I fill in "action[name]" with "Botnet"
+        And I fill in "action[impact]" with "Botnet"
+        When I click "Create Action"
         Then I should be on the action list page
         And I should see "Botnet"
         And I should see a success message for "Botnet"
