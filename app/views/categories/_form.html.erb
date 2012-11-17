@@ -8,7 +8,7 @@
   <div class="control-group">
     <%= f.label :impact, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :impact, :class => 'text_field' %>
+      <%= f.select :impact, Category::IMPACTS %>
     </div>
   </div>
 
