@@ -27,5 +27,6 @@ describe CategoriesController, "Create, Read, Update, and Destroy Categories" do
             response.should be_success
         end
     end
+
 end
 

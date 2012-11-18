@@ -25,3 +25,4 @@ Feature: Manage Categories
         When I click "Create Category"
         Then I should be on the new category page
         And I should see an error message for "Botnet"
+
