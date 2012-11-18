@@ -6,8 +6,13 @@ Feature: Manage Categories
     Scenario: User adds a category 
         Given I go to the new category page
         And I fill in "category[name]" with "Botnet"
-        And I fill in "category[impact]" with "Botnet"
+        And I select "Botnet" from "category[impact]"
         When I click "Create Category"
         Then I should be on the category list page
         And I should see "Botnet"
         And I should see a success message for "Botnet"
+
+    Scenario: User lists the categories
+        Given I have a category called "botnet"
+        When I go to the category list page
+        Then I should see "botnet"

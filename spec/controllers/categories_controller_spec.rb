@@ -22,6 +22,10 @@ describe CategoriesController, "Create, Read, Update, and Destroy Categories" do
             assigns(:category).name.should == "botnet"
             assigns(:category).impact.should == "botnet"
         end
+
+        it "should be successful" do
+            response.should be_success
+        end
     end
 end
 
