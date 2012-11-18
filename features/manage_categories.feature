@@ -16,3 +16,12 @@ Feature: Manage Categories
         Given I have a category called "botnet"
         When I go to the category list page
         Then I should see "botnet"
+
+    Scenario: User tries to create a duplicate category
+        Given I have a category called "botnet"
+        And I go to the new category page
+        And I fill in "category[name]" with "botnet"
+        And I select "Botnet" from "category[impact]"
+        When I click "Create Category"
+        Then I should be on the new category page
+        And I should see an error message for "Botnet"

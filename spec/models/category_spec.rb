@@ -12,5 +12,10 @@ describe Category do
     it "should not allow invalid impacts" do
         Category.new(name:"botnet", impact:"Bacon").should_not be_valid
     end
+
+    it "should not allow duplciate impacts" do
+        Category.create!(name:"botnet", impact:"Botnet")
+        Category.new(name:"botnet", impact:"Botnet").should_not be_valid
+    end
 end
 

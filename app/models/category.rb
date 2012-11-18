@@ -15,4 +15,5 @@ class Category < ActiveRecord::Base
 
   validates :name, :impact, presence:true
   validates :impact, :inclusion => { :in => IMPACTS, :message => "%{value} is not a valid CIF impact."}
+  validates :name, :uniqueness => true
 end

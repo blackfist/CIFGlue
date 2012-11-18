@@ -6,6 +6,10 @@ Then /^I should be on the category list page$/ do
     page.current_path.should == categories_path
 end
 
+Then /^I should be on the new category page$/ do
+    page.current_path.should == new_category_path
+end
+
 Given /^I select "(.*?)" from "(.*?)"$/ do |value, dropdown|
     page.select(value, :from => dropdown)
 end
