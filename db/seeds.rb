@@ -10,3 +10,4 @@
 PrivacyTag.create!(:content => "Red", :color => "Red")
 PrivacyTag.create!(:content => "Amber", :color => "Yellow")
 PrivacyTag.create!(:content => "Green", :color => "White")
+Category.create!(name:"Uncategorized", impact:"Botnet")

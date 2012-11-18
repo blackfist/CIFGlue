@@ -1,9 +1,10 @@
 class Indicator < ActiveRecord::Base
-  attr_accessible :analyst, :case, :content, :description, :type, :privacy_tag_id, :alternateid 
+  attr_accessible :analyst, :case, :content, :description, :type, :privacy_tag_id, :alternateid, :category_id
   validates :content, :description, :analyst, :privacy_tag_id, :case, :presence => true
   scope :others, where(:type => nil)
 
   belongs_to :privacy_tag
+  belongs_to :category
 
 
   def friendly_name

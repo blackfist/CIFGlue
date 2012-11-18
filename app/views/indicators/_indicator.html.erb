@@ -35,6 +35,12 @@
           <%= f.collection_select :privacy_tag_id, PrivacyTag.all, :id, :content %>
       </div>
   </div>
+  <div class="control-group">
+      <%= f.label "Category", :class => 'control-label' %>
+      <div class="controls">
+          <%= f.collection_select :category_id, Category.all, :id, :name %>
+      </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

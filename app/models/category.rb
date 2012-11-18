@@ -13,6 +13,8 @@ class Category < ActiveRecord::Base
 
   attr_accessible :impact, :name
 
+  has_many :indicators
+
   validates :name, :impact, presence:true
   validates :impact, :inclusion => { :in => IMPACTS, :message => "%{value} is not a valid CIF impact."}
   validates :name, :uniqueness => true
