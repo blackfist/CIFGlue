@@ -68,7 +68,8 @@ class IndicatorsController < ApplicationController
                                         :analyst => @mal.analyst,
                                         :case => @mal.case,
                                         :alternateid => @mal.alternateid,
-					:privacy_tag_id => @mal.privacy_tag_id,
+					                    :privacy_tag_id => @mal.privacy_tag_id,
+                                        :category_id => @mal.category_id,
                                         :description => @mal.description) 
             if @tempmal.save == false
                 @anyfailures = true
@@ -86,6 +87,7 @@ class IndicatorsController < ApplicationController
                                      :alternateid => @ind.alternateid,
                                      :description => @ind.description,
                                      :privacy_tag_id => @ind.privacy_tag_id,
+                                     :category_id => @ind.category_id,
                                      :type => "Indicator")
                 
             if MalwareIndicator.isHash(@tempind.content)

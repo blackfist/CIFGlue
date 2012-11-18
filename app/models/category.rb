@@ -11,7 +11,7 @@ class Category < ActiveRecord::Base
       'Suspicious',
       'Whitelist']
 
-  attr_accessible :impact, :name
+  attr_accessible :impact, :name, :description
 
   has_many :indicators
 

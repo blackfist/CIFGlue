@@ -5,18 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:impact) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.categories', :default => t("helpers.categories") %></th>
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= link_to category.id, category_path(category) %></td>
-        <td><%= category.name %></td>
+          <td><strong><%= link_to category.name, category_path(category) %></strong>
+            <span class="badge"><%= category.indicators.count %></span></td>
+        <td><%= category.description %></td>
         <td><%= category.impact %></td>
         <td><%=l category.created_at %></td>
         <td>
