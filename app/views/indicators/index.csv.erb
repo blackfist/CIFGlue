@@ -1,4 +1,4 @@
-#md5sum,content,ipaddress,case,alternateid,created_at,path,privacy
+#md5sum,content,ipaddress,case,alternateid,created_at,path,privacy,category_name,cif_impact
 <% @indicators_consumable.all.each do |i| %>
-<%= i.md5sum %>,<%= i.content %>,<%= i.ipaddress %>,<%= i.case %>,<%= i.alternateid ||= " " %>,<%= i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ') %>,<%= indicator_url(i) %>,<%= i.Privacy %>
+    <%= i.md5sum %>,<%= i.content %>,<%= i.ipaddress %>,<%= i.case %>,<%= i.alternateid ||= " " %>,<%= i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ') %>,<%= indicator_url(i) %>,<%= i.Privacy %>,<%= i.category.name %>,<%= i.category.impact %>
 <% end %>

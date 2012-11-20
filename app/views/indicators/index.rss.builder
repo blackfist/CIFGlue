@@ -17,6 +17,8 @@ xml.rss version: "2.0" do
                 xml.alternateid i.alternateid
                 xml.date    i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')
                 xml.privacy i.Privacy
+                xml.category i.category.name
+                xml.cif_impact i.category.impact
                 xml.link    indicator_url(i)
                 xml.guid    indicator_url(i)
             end
