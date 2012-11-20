@@ -8,17 +8,16 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:impact) %></th>
-      <th><%=t '.categories', :default => t("helpers.categories") %></th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-          <td><strong><%= link_to category.name, category_path(category) %></strong>
+          <td><strong><%= link_to category.name, indicators_path(:q => { :category_id_eq => category.id }) %></strong>
             <span class="badge"><%= category.indicators.count %></span></td>
         <td><%= category.description %></td>
         <td><%= category.impact %></td>
-        <td><%=l category.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_category_path(category), :class => 'btn btn-mini' %>

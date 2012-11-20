@@ -3,7 +3,6 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    @params = {"q" => params[:q] }
     @search = Indicator.search(params[:q])
     if !params[:results].nil?
         @indicators_consumable = @search.result.paginate(:page => params[:page] ||= 1, :per_page => params[:results])

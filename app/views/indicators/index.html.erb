@@ -30,6 +30,10 @@
                     <%= f.label :privacy_tag_id_eq, "Privacy" %>
                     <%= f.collection_select :privacy_tag_id_eq, PrivacyTag.all, :id, :content, {:include_blank => "All" } %>
                 </div>
+                <div class="field">
+                    <%= f.label :category_id_eq, "Category" %>
+                    <%= f.collection_select :category_id_eq, Category.all, :id, :name, {:include_blank => "All" } %>
+                </div>
                 <div class="action"><%= f.submit "Search" %></div>
             <% end %>
         </div>

@@ -13,7 +13,7 @@
   <tbody>
     <% @privacy_tags.each do |privacy_tag| %>
       <tr>
-          <td><%= link_to privacy_tag.content, privacy_tag_path(privacy_tag), :class => privacy_tag.PrivacyColorClass %>
+          <td><%= link_to privacy_tag.content, indicators_path(:q=>{:privacy_tag_id_eq => privacy_tag.id}), :class => privacy_tag.PrivacyColorClass %>
               <span class="badge"><%= privacy_tag.indicators.count %></span></td>
         <td><%= privacy_tag.description %></td>
         <td>
