@@ -16,9 +16,15 @@ Configuring CIF
 CIFGlue will create two feeds which you can import into CIF and assign confidence to.  One feed contains all the malware hashes that have been entered and can be accessed at http://localhost:3000/malware.rss.  The other feed is every indicator that is not malware and can be accessed at http://localhost:3000/other.rss.
  
 Customizing CIFGlue
--------------------
+===================
 
 Since you might not work for Verizon you probably don't want your RSS feed to say Verizon intelligence and all that.  If you go into the app/models/settings.rb file you can change the ORGNAME value to something specific for your group.  The default value is Verizon so that you'll know who made this awesome app (which is basically a less-cool less-sophisticated version of Twitter). You can also change the logo at the top of the screen by placing your own logo into app/assets/images and changing the value of ORGIMAGE in the app/models/settings.rb file.  The default is Verizon because Verizon rocks.
+
+Searching a Text File
+=====================
+There is a rake task that you can use to search quickly through a text file of indicators.  The text file should have one indicator on each line and nothing else.  Once you have the text file on the server you can search for cases where those indicators appear by typing:
+
+rake quicksearch infile=/foo/bar.txt RAILS_ENV=production (or whatever environment your production indicators are in)
 
 Thanks
 ------
