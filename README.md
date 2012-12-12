@@ -23,8 +23,9 @@ Since you might not work for Verizon you probably don't want your RSS feed to sa
 Searching a Text File
 =====================
 There is a rake task that you can use to search quickly through a text file of indicators.  The text file should have one indicator on each line and nothing else.  Once you have the text file on the server you can search for cases where those indicators appear by typing:
-
+````ruby
 rake quicksearch infile=/foo/bar.txt RAILS_ENV=production (or whatever environment your production indicators are in)
+````
 
 Thanks
 ------
