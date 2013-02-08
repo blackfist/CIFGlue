@@ -44,7 +44,7 @@
   <div class="control-group">
       <%= f.label "Action", :class => 'control-label' %>
       <div class="controls">
-          <%= f.collection_select :veris_action, VerisAction.all(order:"name ASC"), :name, :name, {selected:@indicator.veris_action.split(';')}, {multiple:true} %>
+          <%= f.collection_select :veris_action, VerisAction.all(order:"name ASC"), :name, :name, {selected:@indicator.veris_action.split(';')}, {multiple:true, size:10} %>
       </div>
   </div>
 
