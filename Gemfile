@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'ransack'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.

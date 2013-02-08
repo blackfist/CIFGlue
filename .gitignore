@@ -23,3 +23,6 @@
 
 # Ignore any swap files if I have vi open
 *.*.swp
+
+# Ignore my custom Gemfile too
+Gemfile*

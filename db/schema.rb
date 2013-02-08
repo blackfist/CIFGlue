@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20121118213555) do
     t.string   "type"
     t.string   "md5sum"
     t.string   "ipaddress"
-    t.integer  "confidence"
     t.integer  "privacy_tag_id"
     t.string   "alternateid"
     t.integer  "category_id"

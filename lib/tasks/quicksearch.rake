@@ -10,11 +10,9 @@ task :quicksearch => [:environment] do |t, args|
     puts "Searching through #{Indicator.count} indicators in CIFGlue."
     infile.readlines.each do |ind|
         ind = ind.strip
-        puts ind
         @instances = Indicator.where(:content => ind)
-        if @instances.all.count == 0
-            puts "\tNone"
-        else
+        if @instances.all.count > 0
+            puts ind
             @instances.each do |instance|
                 puts "\t#{instance.case},#{instance.alternateid}"
             end
