@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208160844) do
+ActiveRecord::Schema.define(:version => 20130208191151) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130208160844) do
     t.string   "alternateid"
     t.string   "VERIS_action"
     t.string   "category"
+    t.string   "veris_action"
   end
 
   create_table "privacy_tags", :force => true do |t|

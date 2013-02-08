@@ -1,0 +1,34 @@
+<%- model_class = VerisAction.new.class -%>
+<div class="page-header">
+  <h1>VERIS Actions</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @veris_actions.each do |veris_action| %>
+      <tr>
+        <td><%= veris_action.name %></td>
+        <td><%= veris_action.description %></td>
+        <td>
+            <%= link_to t('.edit', :default => "<i class='icon-pencil icon-white'></i>".html_safe),
+                      edit_veris_action_path(veris_action), :class => 'btn btn-mini' %>
+                      <%= link_to t('.destroy', :default => "<i class='icon-trash icon-white'></i>".html_safe),
+                      veris_action_path(veris_action),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_veris_action_path,
+            :class => 'btn btn-primary' %>

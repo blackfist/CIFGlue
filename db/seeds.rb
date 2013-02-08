@@ -18,3 +18,12 @@ Category.where(name:"C2", description:"Command and control server.  A system use
 Category.where(name:"Proxy", description:"a system used to shield the attacker's IP address (such as anonymous proxies).").first_or_create
 Category.where(name:"Malware Distributor", description:"a system used to distribute malware.  Many exploit servers will redirect a victim system to a malware distributor to download additional malwa    re.").first_or_create
 Category.where(name:"Exploit Server", description:"systems that have exercised various exploits against victims using browsers, programs, downloaded files, scripts, or operating system vulnerabiliti    es.").first_or_create
+
+VerisAction.where(name:"Malware: Adware", description:"Adware").first_or_create
+VerisAction.where(name:"Malware: Backdoor", description:"Enable Remote Access").first_or_create
+VerisAction.where(name:"Malware: Brute force", description:"Brute Force Attack").first_or_create
+VerisAction.where(name:"Malware: Capture app data", description:"Capture data from application or system process").first_or_create
+VerisAction.where(name:"Malware: Capture stored data", description:"Capture data stored on system disk").first_or_create
+VerisAction.where(name:"Malware: Client-side", description:"Client-side or browser attack (e.g., redirection, XSS, MitB)").first_or_create
+VerisAction.where(name:"Malware: C2", description:"Command and control (C2)").first_or_create
+VerisAction.where(name:"Malware: Destroy data", description:"Destroy or corrupt stored data").first_or_create

@@ -1,4 +1,4 @@
-#md5sum,content,ipaddress,case,alternateid,created_at,path,privacy,category,description,splunked
+#md5sum,content,ipaddress,case,alternateid,created_at,path,privacy,category,actions,description,splunked
 <% @indicators_consumable.all.each do |i| %>
-<%= i.md5sum %>,<%= i.content %>,<%= i.ipaddress %>,<%= i.case %> <%= i.description.gsub(/,/,'').gsub(/\r\n/,'') %>,<%= i.alternateid ||= " " %>,<%= i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ') %>,<%= indicator_url(i) %>,<%= i.Privacy %>,<%= i.category %>,<%= i.description.gsub(/,/,'').gsub(/\r\n/,'') %>,"<%= i.content %>"
+<%= i.md5sum %>,<%= i.content %>,<%= i.ipaddress %>,<%= i.case %> <%= i.description.gsub(/,/,'').gsub(/\r\n/,'') %>,<%= i.alternateid ||= " " %>,<%= i.created_at.strftime('%Y-%m-%dT%H:%M:%SZ') %>,<%= indicator_url(i) %>,<%= i.Privacy %>,<%= i.category %>,<%= i.veris_action %>,<%= i.description.gsub(/,/,'').gsub(/\r\n/,'') %>,"<%= i.content %>"
 <% end %>

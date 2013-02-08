@@ -4,6 +4,7 @@ Cif::Application.routes.draw do
   resources :other, :controller => "indicators", :type => "other", :only => [:index]
   resources :privacy_tags
   resources :categories
+  resources :veris_actions
 
   
   # The priority is based upon order of creation:

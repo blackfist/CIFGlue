@@ -41,6 +41,12 @@
           <%= f.collection_select :category, Category.all, :name, :name %>
       </div>
   </div>
+  <div class="control-group">
+      <%= f.label "Action", :class => 'control-label' %>
+      <div class="controls">
+          <%= f.collection_select :veris_action, VerisAction.all(order:"name ASC"), :name, :name, {},{multiple:true} %>
+      </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

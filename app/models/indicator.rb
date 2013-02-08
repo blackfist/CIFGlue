@@ -1,5 +1,5 @@
 class Indicator < ActiveRecord::Base
-  attr_accessible :analyst, :case, :content, :description, :type, :privacy_tag_id, :alternateid, :category
+  attr_accessible :analyst, :case, :content, :description, :type, :privacy_tag_id, :alternateid, :category, :veris_action
   validates :content, :description, :analyst, :privacy_tag_id, :case, :presence => true
   scope :others, where(:type => nil)
 

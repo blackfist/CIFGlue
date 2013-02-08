@@ -70,6 +70,7 @@ class IndicatorsController < ApplicationController
                                         :alternateid => @mal.alternateid,
 					                    :privacy_tag_id => @mal.privacy_tag_id,
                                         :category => @mal.category,
+                                        :veris_action => @mal.veris_action.join(';'),
                                         :description => @mal.description) 
             if @tempmal.save == false
                 @anyfailures = true
@@ -88,6 +89,7 @@ class IndicatorsController < ApplicationController
                                      :description => @ind.description,
                                      :privacy_tag_id => @ind.privacy_tag_id,
                                      :category => @ind.category,
+                                     :veris_action => @ind.veris_action.join(';'),
                                      :type => "Indicator")
                 
             if MalwareIndicator.isHash(@tempind.content)
@@ -119,8 +121,7 @@ class IndicatorsController < ApplicationController
 
   def update
     @indicator = Indicator.find(params[:id])
-    puts @indicator.type
-
+    params[:indicator][:veris_action] = params[:indicator][:veris_action].join(';')
 
     respond_to do |format|
       if @indicator.update_attributes(params[:indicator])
