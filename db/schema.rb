@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208191151) do
+ActiveRecord::Schema.define(:version => 20130208211332) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20130208191151) do
     t.string   "type"
     t.string   "md5sum"
     t.string   "ipaddress"
-    t.integer  "confidence"
     t.integer  "privacy_tag_id"
     t.string   "alternateid"
     t.string   "VERIS_action"

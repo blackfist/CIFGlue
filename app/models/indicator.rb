@@ -30,4 +30,12 @@ class Indicator < ActiveRecord::Base
           Indicator.where(:type => type)
       end
   end
+
+  def veris_action_array
+      if self.veris_action.nil?
+          return []
+      else
+          return veris_action.split(';')
+      end
+  end
 end
