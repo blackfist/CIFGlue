@@ -1,13 +1,4 @@
 Cif::Application.routes.draw do
-
-  get "categories/new"
-
-  get "categories/index"
-
-  get "categories/create"
-
-  # get "privacy_tags_controller/index"
-
   resources :indicators 
   resources :malware, :controller => "indicators", :type => "MalwareIndicator"
   resources :other, :controller => "indicators", :type => "other", :only => [:index]

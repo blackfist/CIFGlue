@@ -7,25 +7,22 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:impact) %></th>
-      <th>Actions</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-          <td><strong><%= link_to category.name, indicators_path(:q => { :category_id_eq => category.id }) %></strong>
-            <span class="badge"><%= category.indicators.count %></span></td>
+        <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><%= category.impact %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_category_path(category), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      category_path(category),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+            <%= link_to t('.edit', :default => "<i class='icon-pencil icon-white'></i>".html_safe),
+                  edit_category_path(category), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => "<i class='icon-trash icon-white'></i>".html_safe),
+                  category_path(category),
+                  :method => :delete,
+                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                  :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

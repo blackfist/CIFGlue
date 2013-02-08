@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CategoriesController do
+describe CategoriesControllerController do
 
   describe "GET 'new,'" do
     it "returns http success" do

@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118213555) do
+ActiveRecord::Schema.define(:version => 20130208160844) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.string   "impact"
+    t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "description"
   end
 
   create_table "indicators", :force => true do |t|
@@ -31,9 +30,11 @@ ActiveRecord::Schema.define(:version => 20121118213555) do
     t.string   "type"
     t.string   "md5sum"
     t.string   "ipaddress"
+    t.integer  "confidence"
     t.integer  "privacy_tag_id"
     t.string   "alternateid"
-    t.integer  "category_id"
+    t.string   "VERIS_action"
+    t.string   "category"
   end
 
   create_table "privacy_tags", :force => true do |t|
@@ -42,6 +43,13 @@ ActiveRecord::Schema.define(:version => 20121118213555) do
     t.datetime "updated_at",  :null => false
     t.string   "color"
     t.text     "description"
+  end
+
+  create_table "veris_actions", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
